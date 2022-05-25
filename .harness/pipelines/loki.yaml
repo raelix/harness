@@ -58,6 +58,16 @@ pipeline:
                                     executionTarget: {}
                                 timeout: 10m
                                 failureStrategies: []
+                          - step:
+                                type: K8sBlueGreenDeploy
+                                name: deploy
+                                identifier: deploy
+                                spec:
+                                    skipDryRun: false
+                                    delegateSelectors:
+                                        - kubernetes-delegator
+                                timeout: 10m
+                                failureStrategies: []
                       rollbackSteps: []
                   serviceDependencies: []
               tags: {}
