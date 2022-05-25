@@ -58,6 +58,16 @@ pipeline:
                                     executionTarget: {}
                                 timeout: 10m
                                 failureStrategies: []
+                          - step:
+                                type: K8sApply
+                                name: apply
+                                identifier: apply
+                                spec:
+                                    filePaths:
+                                        - loki/
+                                    skipDryRun: false
+                                    skipSteadyStateCheck: false
+                                timeout: 10m
                       rollbackSteps: []
                   serviceDependencies: []
               tags: {}
