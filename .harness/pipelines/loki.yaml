@@ -27,7 +27,7 @@ pipeline:
                                                 type: Http
                                                 spec:
                                                     connectorRef: account.grafanahelm
-                                            chartName: loki-stack
+                                            chartName: loki-simple-scalable
                                             chartVersion: <+input>
                                             helmVersion: V3
                                             skipResourceVersioning: false
@@ -38,7 +38,7 @@ pipeline:
                           spec:
                               connectorRef: account.kubernetesconnector
                               namespace: loki
-                              releaseName: release-<+INFRA_KEY>
+                              releaseName: loki
                       allowSimultaneousDeployments: true
                   execution:
                       steps:
