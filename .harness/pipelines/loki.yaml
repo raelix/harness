@@ -58,18 +58,6 @@ pipeline:
                                     executionTarget: {}
                                 timeout: 10m
                                 failureStrategies: []
-                          - step:
-                                name: Stage Deployment
-                                identifier: stageDeployment
-                                type: K8sBlueGreenDeploy
-                                timeout: 10m
-                                spec:
-                                    skipDryRun: false
-                                    delegateSelectors:
-                                        - kubernetes-delegator
-                                when:
-                                    stageStatus: All
-                                failureStrategies: []
                       rollbackSteps:
                           - step:
                                 name: Swap primary with stage service
