@@ -52,23 +52,11 @@ pipeline:
                                     source:
                                         type: Inline
                                         spec:
-                                            script: kubectl create ns logging
+                                            script: kubectl create ns logging || true
                                     environmentVariables: []
                                     outputVariables: []
                                     executionTarget: {}
                                 timeout: 10m
-                                failureStrategies: []
-                          - step:
-                                type: K8sRollingDeploy
-                                name: deploy
-                                identifier: deploy
-                                spec:
-                                    skipDryRun: false
-                                    delegateSelectors:
-                                        - kubernetes-delegator
-                                timeout: 10m
-                                when:
-                                    stageStatus: All
                                 failureStrategies: []
                       rollbackSteps:
                           - step:
