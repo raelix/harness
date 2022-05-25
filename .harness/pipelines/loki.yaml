@@ -37,7 +37,7 @@ pipeline:
                           type: KubernetesDirect
                           spec:
                               connectorRef: account.kubernetesconnector
-                              namespace: loki
+                              namespace: <+input>
                               releaseName: loki
                       allowSimultaneousDeployments: true
                   execution:
@@ -64,15 +64,11 @@ pipeline:
                                 identifier: rolling
                                 spec:
                                     skipDryRun: false
+                                    delegateSelectors:
+                                        - kubernetes-delegator
                                 timeout: 10m
-                      rollbackSteps:
-                          - step:
-                                name: Swap primary with stage service
-                                identifier: rollbackBgSwapServices
-                                type: K8sBGSwapServices
-                                timeout: 10m
-                                spec:
-                                    skipDryRun: false
+                                failureStrategies: []
+                      rollbackSteps: []
                   serviceDependencies: []
               tags: {}
               failureStrategies:
