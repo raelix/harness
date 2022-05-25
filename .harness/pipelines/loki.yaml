@@ -27,7 +27,7 @@ pipeline:
                                                 type: Http
                                                 spec:
                                                     connectorRef: account.grafanahelm
-                                            chartName: loki-simple-scalable
+                                            chartName: loki
                                             chartVersion: <+input>
                                             helmVersion: V3
                                             skipResourceVersioning: false
