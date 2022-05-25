@@ -58,6 +58,13 @@ pipeline:
                                     executionTarget: {}
                                 timeout: 10m
                                 failureStrategies: []
+                          - step:
+                                type: K8sRollingDeploy
+                                name: rolling
+                                identifier: rolling
+                                spec:
+                                    skipDryRun: false
+                                timeout: 10m
                       rollbackSteps:
                           - step:
                                 name: Swap primary with stage service
