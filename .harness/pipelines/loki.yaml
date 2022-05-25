@@ -1,7 +1,7 @@
 pipeline:
     name: loki
     identifier: loki
-    allowStageExecutions: true
+    allowStageExecutions: false
     projectIdentifier: deploy
     orgIdentifier: default
     tags: {}
