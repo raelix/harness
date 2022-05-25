@@ -43,12 +43,31 @@ pipeline:
                   execution:
                       steps:
                           - step:
+                                type: ShellScript
+                                name: create ns
+                                identifier: create_ns
+                                spec:
+                                    shell: Bash
+                                    onDelegate: true
+                                    source:
+                                        type: Inline
+                                        spec:
+                                            script: kubectl create ns logging
+                                    environmentVariables: []
+                                    outputVariables: []
+                                    executionTarget: {}
+                                timeout: 10m
+                                failureStrategies: []
+                          - step:
                                 name: Stage Deployment
                                 identifier: stageDeployment
                                 type: K8sBlueGreenDeploy
                                 timeout: 10m
                                 spec:
                                     skipDryRun: false
+                                when:
+                                    stageStatus: All
+                                failureStrategies: []
                           - step:
                                 name: Swap primary with stage service
                                 identifier: bgSwapServices
@@ -64,6 +83,7 @@ pipeline:
                                 timeout: 10m
                                 spec:
                                     skipDryRun: false
+                  serviceDependencies: []
               tags: {}
               failureStrategies:
                   - onFailure:
