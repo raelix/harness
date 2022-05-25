@@ -58,6 +58,16 @@ pipeline:
                                     executionTarget: {}
                                 timeout: 10m
                                 failureStrategies: []
+                          - step:
+                                type: K8sRollingDeploy
+                                name: rolling
+                                identifier: rolling
+                                spec:
+                                    skipDryRun: false
+                                    delegateSelectors:
+                                        - kubernetes-delegator
+                                timeout: 10m
+                                failureStrategies: []
                       rollbackSteps: []
                   serviceDependencies: []
               tags: {}
