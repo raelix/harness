@@ -28,7 +28,7 @@ pipeline:
                                                 spec:
                                                     connectorRef: account.grafanahelm
                                             chartName: loki
-                                            chartVersion: 2.11.0
+                                            chartVersion: <+input>
                                             helmVersion: V3
                                             skipResourceVersioning: false
                   infrastructure:
