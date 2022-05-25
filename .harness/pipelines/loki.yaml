@@ -70,13 +70,6 @@ pipeline:
                                 when:
                                     stageStatus: All
                                 failureStrategies: []
-                          - step:
-                                name: Swap primary with stage service
-                                identifier: bgSwapServices
-                                type: K8sBGSwapServices
-                                timeout: 10m
-                                spec:
-                                    skipDryRun: false
                       rollbackSteps:
                           - step:
                                 name: Swap primary with stage service
