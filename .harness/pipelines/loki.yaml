@@ -65,6 +65,8 @@ pipeline:
                                 timeout: 10m
                                 spec:
                                     skipDryRun: false
+                                    delegateSelectors:
+                                        - kubernetes-delegator
                                 when:
                                     stageStatus: All
                                 failureStrategies: []
