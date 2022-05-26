@@ -17,7 +17,5 @@ connector:
       type: Token
       spec:
         tokenRef: account.githubtoken
-    delegateSelectors:
-    - kubernetes-delegator
-    executeOnDelegate: true
+    executeOnDelegate: false
     type: Repo
