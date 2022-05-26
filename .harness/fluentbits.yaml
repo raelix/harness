@@ -1,0 +1,23 @@
+connector:
+  name: fluentbits
+  identifier: fluentbits
+  orgIdentifier: default
+  projectIdentifier: deployer
+  type: Github
+  spec:
+    url: https://github.com/fluent/fluent-operator/tree/master/charts/fluent-operator
+    authentication:
+      type: Http
+      spec:
+        type: UsernameToken
+        spec:
+          username: raelix
+          tokenRef: account.githubtoken
+    apiAccess:
+      type: Token
+      spec:
+        tokenRef: account.githubtoken
+    delegateSelectors:
+    - kubernetes-delegator
+    executeOnDelegate: true
+    type: Repo
