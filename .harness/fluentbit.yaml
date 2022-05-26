@@ -1,0 +1,12 @@
+connector:
+  name: fluentbit
+  identifier: fluentbit
+  orgIdentifier: default
+  projectIdentifier: deployer
+  type: HttpHelmRepo
+  spec:
+    helmRepoUrl: https://github.com/fluent/fluent-operator/tree/master/charts/fluent-operator
+    auth:
+      type: Anonymous
+    delegateSelectors:
+    - kubernetes-delegator
