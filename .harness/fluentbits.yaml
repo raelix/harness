@@ -13,9 +13,5 @@ connector:
         spec:
           username: raelix
           tokenRef: account.githubtoken
-    apiAccess:
-      type: Token
-      spec:
-        tokenRef: account.githubtoken
     executeOnDelegate: false
     type: Repo
